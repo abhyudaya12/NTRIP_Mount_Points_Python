@@ -1,10 +1,11 @@
 
+
 import socket
 
 UserAgent = 'MountPointScript'
 
 
-Server = '115.42.198.157'
+Server = '210.117.198.83'
 Port = 2101
 
 
@@ -13,11 +14,10 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = (Server, Port)
 client_socket.connect(server_address)
 
-request_header = ('GET / HTTP/1.0\r\n' +
-                'Host: %s:%s\r\n' +
-                'User-Agent: %s\r\n' +
-                'Accept: */*\r\n' +
-                '\r\n') % (Server, Port, UserAgent)
+request_header = ("GET / HTTP/1.1\r\n" +
+    "User-Agent: NTRIP Client/1.0\r\n" +
+    "Connection: close\r\n" +
+    "\r\n")
 
 print("**********************")
 print("*  request_header    *")
